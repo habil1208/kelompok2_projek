@@ -41,7 +41,7 @@ body {
 }
 
 .navbar .navbar-logo span {
-  color: var(--primary);
+  color: cyan;
 }
 
 .navbar .navbar-nav a {
