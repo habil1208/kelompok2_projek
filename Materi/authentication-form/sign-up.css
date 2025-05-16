@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-primary: #64e2b7;
+  --color-muted: #315c4e;
+}
+
+body {
+  gap: 50px;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  height: 100vh;
+  padding: 0 32px;
+  background: #f1f5fb;
+  color: #315c4e;
+  font-family: ;
+}
