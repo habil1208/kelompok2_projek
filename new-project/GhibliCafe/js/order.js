@@ -1,14 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Elemen DOM
-  const menuContainer = document.querySelector(".menu-items");
-  const cartContainer = document.querySelector(".cart-items");
-  const emptyCartMsg = document.querySelector(".empty-cart");
-  const totalDisplay = document.getElementById("total-price");
-  const orderBtn = document.querySelector(".place-order-btn");
-  const categoryBtns = document.querySelectorAll(".category-btn");
-  const notification = document.querySelector(".ghibli-notification");
-
-  // Data Menu
+  // Data Menu (sama persis dengan versi asli)
   const menuItems = [
     {
       id: 1,
@@ -68,55 +59,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Keranjang Belanja
   let cart = [];
+  const menuContainer = document.querySelector(".menu-items");
+  const cartContainer = document.querySelector(".cart-items");
+  const totalDisplay = document.getElementById("total-price");
+  const orderBtn = document.querySelector(".place-order-btn");
 
   // Tampilkan Menu
-  function showMenu(category = "all") {
+  function showMenu() {
     menuContainer.innerHTML = "";
 
-    const filtered =
-      category === "all"
-        ? menuItems
-        : menuItems.filter((item) => item.category === category);
-
-    filtered.forEach((item) => {
+    menuItems.forEach((item) => {
       const itemElement = document.createElement("div");
       itemElement.className = "menu-item";
       itemElement.innerHTML = `
-                <div class="item-image" style="background-image: url('${
-                  item.image
-                }')"></div>
-                <div class="item-details">
-                    <div class="item-header">
-                        <span class="item-name">${item.name}</span>
-                        <span class="item-price">Rp${item.price.toLocaleString()}</span>
-                    </div>
-                    <p class="item-desc">${item.desc}</p>
-                    <div class="item-tags">
-                        <span class="tag ${item.tag}">${
-        item.tag === "special"
-          ? "Special Menu"
-          : item.tag === "spirited"
-          ? "Spirited Special"
-          : "Sweet"
-      }</span>
-                    </div>
-                    <button class="add-to-cart" data-id="${
-                      item.id
-                    }">Add to Cart</button>
-                </div>
-            `;
+        <div class="item-image" style="background-image: url('${
+          item.image
+        }')"></div>
+        <div class="item-details">
+          <div class="item-header">
+            <span class="item-name">${item.name}</span>
+            <span class="item-price">Rp${item.price.toLocaleString()}</span>
+          </div>
+          <p class="item-desc">${item.desc}</p>
+          <button class="add-to-cart" data-id="${item.id}">Add to Cart</button>
+        </div>
+      `;
       menuContainer.appendChild(itemElement);
     });
 
-    // event listener untuk tombol add to cart
+    // tombol add to cart
     document.querySelectorAll(".add-to-cart").forEach((btn) => {
       btn.addEventListener("click", function () {
-        const itemId = parseInt(this.getAttribute("data-id"));
-        addToCart(itemId);
+        addToCart(parseInt(this.getAttribute("data-id")));
       });
     });
   }
-
   // Tambahkan ke Keranjang
   function addToCart(itemId) {
     const item = menuItems.find((i) => i.id === itemId);
@@ -139,46 +116,35 @@ document.addEventListener("DOMContentLoaded", function () {
     cartContainer.innerHTML = "";
     let total = 0;
 
-    if (cart.length === 0) {
-      emptyCartMsg.style.display = "block";
-      orderBtn.disabled = true;
-    } else {
-      emptyCartMsg.style.display = "none";
-      orderBtn.disabled = false;
+    cart.forEach((item) => {
+      const itemTotal = item.price * item.quantity;
+      total += itemTotal;
 
-      cart.forEach((item) => {
-        const itemTotal = item.price * item.quantity;
-        total += itemTotal;
+      const cartItem = document.createElement("div");
+      cartItem.className = "cart-item";
+      cartItem.innerHTML = `
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-quantity">
+          <button class="quantity-btn decrease" data-id="${item.id}">-</button>
+          <span>${item.quantity}</span>
+          <button class="quantity-btn increase" data-id="${item.id}">+</button>
+        </div>
+        <div class="cart-item-price">Rp${itemTotal.toLocaleString()}</div>
+      `;
+      cartContainer.appendChild(cartItem);
+    });
 
-        const cartItem = document.createElement("div");
-        cartItem.className = "cart-item";
-        cartItem.innerHTML = `
-                    <div class="cart-item-name">${item.name}</div>
-                    <div class="cart-item-quantity">
-                        <button class="quantity-btn decrease" data-id="${
-                          item.id
-                        }">-</button>
-                        <span>${item.quantity}</span>
-                        <button class="quantity-btn increase" data-id="${
-                          item.id
-                        }">+</button>
-                    </div>
-                    <div class="cart-item-price">Rp${itemTotal.toLocaleString()}</div>
-                `;
-        cartContainer.appendChild(cartItem);
+    // Event listener untuk tombol quantity
+    document.querySelectorAll(".quantity-btn").forEach((btn) => {
+      btn.addEventListener("click", function () {
+        const id = parseInt(this.getAttribute("data-id"));
+        const isIncrease = this.classList.contains("increase");
+        updateQuantity(id, isIncrease);
       });
-
-      //  event listener untuk tombol quantity
-      document.querySelectorAll(".quantity-btn").forEach((btn) => {
-        btn.addEventListener("click", function () {
-          const id = parseInt(this.getAttribute("data-id"));
-          const isIncrease = this.classList.contains("increase");
-          updateQuantity(id, isIncrease);
-        });
-      });
-    }
+    });
 
     totalDisplay.textContent = `Rp${total.toLocaleString()}`;
+    orderBtn.disabled = cart.length === 0;
   }
 
   // Update Quantity
@@ -198,20 +164,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Filter Kategori
-  categoryBtns.forEach((btn) => {
-    btn.addEventListener("click", function () {
-      categoryBtns.forEach((b) => b.classList.remove("active"));
-      this.classList.add("active");
-      showMenu(this.getAttribute("data-category"));
-    });
-  });
-
   // Place Order
   orderBtn.addEventListener("click", function () {
     if (cart.length === 0) return;
 
-    // Reset keranjang
+    alert(
+      `Order placed! Total: Rp${cart
+        .reduce((sum, item) => sum + item.price * item.quantity, 0)
+        .toLocaleString()}`
+    );
     cart = [];
     updateCart();
   });
