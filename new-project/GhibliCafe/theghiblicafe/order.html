@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ghibli Cafe - Order</title>
+    <link rel="stylesheet" href="..//css/style-order.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="ghibli-order">
+      <div class="order-header">
+        <h1>Ghibli Cafe Order</h1>
+        <div class="totoro-icon"></div>
+        <p>
+          Experience the magic of Ghibli with our delicious treats. Place your
+          order now!
+        </p>
+      </div>
+
+      <div class="order-container">
+        <!-- Menu Section -->
+        <div class="menu-section">
+          <div class="menu-categories">
+            <button class="category-btn active" data-category="all">
+              All Items
+            </button>
+            <button class="category-btn" data-category="food">Food</button>
+            <button class="category-btn" data-category="drinks">Drinks</button>
+            <button class="category-btn" data-category="desserts">
+              Desserts
+            </button>
+          </div>
+
+          <div class="menu-items">
+            <!-- Item 1 - Pizza Totoro -->
+            <div class="menu-item" data-category="food" data-tags="vegetarian">
+              <div
+                class="item-image"
+                style="background-image: url('../assets/assets/pizza.jpeg')"
+              ></div>
+              <div class="item-details">
+                <div class="item-header">
+                  <span class="item-name">Pizza totoro</span>
+                  <span class="item-price">Rp100.000</span>
+                </div>
+                <p class="item-desc">
+                  Pizza lezat dengan saus tomat segar dan keju meleleh, dihias
+                  dengan karakter Totoro yang menggemaskan.
+                </p>
+                <div class="item-tags">
+                  <span class="tag special">Special Menu</span>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+              </div>
+            </div>
+
+            <!-- Item 2 - Milkshake -->
+            <div class="menu-item" data-category="drinks" data-tags="spirited">
+              <div
+                class="item-image"
+                style="background-image: url('../assets/assets/milkshake.jpg')"
+              ></div>
+              <div class="item-details">
+                <div class="item-header">
+                  <span class="item-name">Milkshake</span>
+                  <span class="item-price">Rp15.000</span>
+                </div>
+                <p class="item-desc">
+                  Susu kocok yang creamy dan lezat, terinspirasi dari studio
+                  Ghibli dengan hiasan karakter-karakter lucu.
+                </p>
+                <div class="item-tags">
+                  <span class="tag spirited">Spirited Special</span>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+              </div>
+            </div>
+
+            <!-- Item 3 - Ghibli Dessert -->
+            <div class="menu-item" data-category="desserts" data-tags="special">
+              <div
+                class="item-image"
+                style="background-image: url('../assets/assets/desert.jpg')"
+              ></div>
+              <div class="item-details">
+                <div class="item-header">
+                  <span class="item-name">Ghibli Dessert</span>
+                  <span class="item-price">Rp40.000</span>
+                </div>
+                <p class="item-desc">
+                  Makanan penutup yang terinspirasi dari film Studio Ghibli,
+                  dengan cita rasa manis yang menggugah selera.
+                </p>
+                <div class="item-tags">
+                  <span class="tag special">Studio Special</span>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+              </div>
+            </div>
+
+            <!-- Item 4 - Birthday Cake -->
+            <div class="menu-item" data-category="food" data-tags="hot">
+              <div
+                class="item-image"
+                style="
+                  background-image: url('../assets/assets/cake-birthday.jpg');
+                "
+              ></div>
+              <div class="item-details">
+                <div class="item-header">
+                  <span class="item-name">Ghibli Birthday Cake</span>
+                  <span class="item-price">Rp115.000</span>
+                </div>
+                <p class="item-desc">
+                  Kue ulang tahun yang terinspirasi dari film Studio Ghibli,
+                  dengan hiasan karakter-karakter lucu.
+                </p>
+                <div class="item-tags">
+                  <span class="tag sweet">Sweet</span>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+              </div>
+            </div>
+
+            <!-- Item 5 - Matcha Totoro -->
+            <div class="menu-item" data-category="drinks" data-tags="spirited">
+              <div
+                class="item-image"
+                style="
+                  background-image: url('../assets/assets/macha-totoro.jpg');
+                "
+              ></div>
+              <div class="item-details">
+                <div class="item-header">
+                  <span class="item-name">Matcha totoro</span>
+                  <span class="item-price">Rp25.000</span>
+                </div>
+                <p class="item-desc">
+                  teh hijau khas Jepang yang disajikan dengan hiasan Totoro
+                </p>
+                <div class="item-tags">
+                  <span class="tag spirited">Spirited Special</span>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+              </div>
+            </div>
+
+            <!-- Item 6 - Cloud Cake -->
+            <div
+              class="menu-item"
+              data-category="desserts"
+              data-tags="vegetarian"
+            >
+              <div
+                class="item-image"
+                style="background-image: url('../assets/assets/cake-flufy.jpg')"
+              ></div>
+              <div class="item-details">
+                <div class="item-header">
+                  <span class="item-name">Cloud cake</span>
+                  <span class="item-price">Rp50.000</span>
+                </div>
+                <p class="item-desc">
+                  Kue lembut yang terinspirasi dari awan, dengan bentuk dari
+                  karakter Studio Ghibli yang lucu.
+                </p>
+                <div class="item-tags">
+                  <span class="tag special menu">Special Menu</span>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cart Section -->
+        <div class="cart-section">
+          <h2>Your Order <span class="cart-icon">🛒</span></h2>
+          <div class="cart-items">
+            <p class="empty-cart">Your cart is empty</p>
+            <!-- Cart items will be added here by JavaScript -->
+          </div>
+          <div class="cart-total">
+            <p>Total: <span id="total-price">Rp0</span></p>
+          </div>
+          <button class="place-order-btn">Place Order</button>
+          <a href="index.html" class="back-to-menu">Back to Menu</a>
+        </div>
+      </div>
+    </section>
+
+    <script src="..//js/order.js"></script>
+  </body>
+</html>
