@@ -1,0 +1,252 @@
+/* Ghibli-inspired color palette */
+:root {
+  --ghibli-blue: #6bb2e2;
+  --ghibli-light: #f0f8ff;
+  --ghibli-green: #a8d8b9;
+  --ghibli-dark: #3a5169;
+  --ghibli-yellow: #f7d56d;
+  --ghibli-red: #e87a7a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "M PLUS Rounded 1c", Arial, sans-serif;
+}
+
+body {
+  background-color: var(--ghibli-light);
+  color: var(--ghibli-dark);
+  background-image: url("https://www.transparenttextures.com/patterns/rice-paper.png");
+}
+
+.ghibli-menu {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(58, 81, 105, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.ghibli-menu::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(
+    90deg,
+    var(--ghibli-blue),
+    var(--ghibli-green),
+    var(--ghibli-yellow),
+    var(--ghibli-red)
+  );
+}
+
+.menu-header {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.menu-header h1 {
+  font-size: 2.5rem;
+  color: var(--ghibli-dark);
+  margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
+}
+
+.menu-header h1::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background-color: var(--ghibli-blue);
+  border-radius: 2px;
+}
+
+.menu-header p {
+  color: var(--ghibli-dark);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.totoro-icon {
+  width: 60px;
+  height: 60px;
+  margin: 20px auto;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 20c-16.54 0-30 13.46-30 30s13.46 30 30 30 30-13.46 30-30-13.46-30-30-30zm0 55c-13.81 0-25-11.19-25-25s11.19-25 25-25 25 11.19 25 25-11.19 25-25 25z" fill="%233a5169"/><circle cx="35" cy="40" r="5" fill="%233a5169"/><circle cx="65" cy="40" r="5" fill="%233a5169"/><path d="M40 60c0-5.52 4.48-10 10-10s10 4.48 10 10" fill="none" stroke="%233a5169" stroke-width="3" stroke-linecap="round"/><path d="M30 30l-10-10M70 30l10-10" fill="none" stroke="%233a5169" stroke-width="2" stroke-linecap="round"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.menu-categories {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.category-btn {
+  padding: 10px 20px;
+  background-color: white;
+  border: 2px solid var(--ghibli-blue);
+  color: var(--ghibli-dark);
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin: 5px;
+}
+
+.category-btn:hover,
+.category-btn.active {
+  background-color: var(--ghibli-blue);
+  color: white;
+}
+
+.menu-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.menu-item {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(58, 81, 105, 0.1);
+  position: relative;
+}
+
+.menu-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.item-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.item-image::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.9), transparent);
+}
+
+.item-details {
+  padding: 20px;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.item-name {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--ghibli-dark);
+}
+
+.item-price {
+  background-color: var(--ghibli-yellow);
+  color: var(--ghibli-dark);
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.item-desc {
+  color: var(--ghibli-dark);
+  line-height: 1.5;
+  margin-bottom: 15px;
+  opacity: 0.8;
+}
+
+.item-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.tag {
+  font-size: 0.8rem;
+  padding: 3px 8px;
+  border-radius: 10px;
+}
+
+.tag.special {
+  background-color: var(--ghibli-green);
+  color: var(--ghibli-dark);
+}
+
+.tag.spirited {
+  background-color: var(--ghibli-blue);
+  color: white;
+}
+
+.tag.sweet {
+  background-color: var(--ghibli-red);
+  color: white;
+}
+
+.tag.special {
+  background-color: var(--ghibli-yellow);
+  color: var(--ghibli-dark);
+}
+
+/* Style untuk tombol Beli Sekarang */
+.buy-now-btn {
+  display: inline-block;
+  background-color: #5a8f7b;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+  text-align: center;
+  width: 100%;
+}
+
+.buy-now-btn:hover {
+  background-color: #3a6d5a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .ghibli-menu {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .menu-items {
+    grid-template-columns: 1fr;
+  }
+}

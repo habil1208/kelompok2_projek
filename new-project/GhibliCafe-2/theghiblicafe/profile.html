@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Profile - Ghibli Café</title>
+    <link rel="stylesheet" href="../css/style-profil.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="../assets/assets/totoro.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="ghibli-header">
+      <div class="logo-container">
+        <a href="index.html" class="logo-link">
+          <img
+            src="../assets/assets/totoro.png"
+            alt="Ghibli Café Logo"
+            class="logo"
+          />
+        </a>
+        <h1><span class="ghibli-blue">Ghibli</span> Café</h1>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#menu">Menu</a></li>
+          <li><a href="index.html#location">Visit Us</a></li>
+          <li><a href="profile.html" class="active">My Profile</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <main class="profile-container">
+      <section class="profile-header">
+        <div class="profile-avatar">
+          <img
+            src="../assets/assets/profil.png"
+            alt="Profile Picture"
+            id="profile-pic"
+          />
+          <button class="edit-avatar-btn"><i class="fas fa-camera"></i></button>
+        </div>
+        <h2 id="profile-name">Kaoruko Waguri</h2>
+        <p class="member-since">Member since: June 2023</p>
+      </section>
+
+      <section class="profile-details">
+        <div class="detail-card">
+          <h3><i class="fas fa-user"></i> Personal Info</h3>
+          <div class="detail-content">
+            <p>
+              <strong>Email:</strong>
+              <span id="user-email">Waguri@spiritedaway.com</span>
+            </p>
+            <p>
+              <strong>Phone:</strong>
+              <span id="user-phone">+62 822-6017-1427</span>
+            </p>
+            <p>
+              <strong>Birthday:</strong>
+              <span id="user-birthday">March 21</span>
+            </p>
+            <button class="edit-btn">Edit Info</button>
+          </div>
+        </div>
+
+        <div class="detail-card">
+          <h3><i class="fas fa-map-marker-alt"></i> Address</h3>
+          <div class="detail-content">
+            <p id="user-address">jalan pintu RE Abdullah, Kota Bogor</p>
+            <button class="edit-btn">Edit Address</button>
+          </div>
+        </div>
+
+        <div class="detail-card">
+          <h3><i class="fas fa-heart"></i> Favorites</h3>
+          <div class="detail-content">
+            <div class="favorite-item">
+              <img src="../assets/assets/cake-flufy.jpg" alt="Favorite item" />
+              <p>Fluffy Cake</p>
+            </div>
+            <div class="favorite-item">
+              <img src="../assets/assets/milkshake.jpg" alt="Favorite item" />
+              <p>Milkshake</p>
+            </div>
+            <button class="add-favorite-btn">+ Add Favorite</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="order-history">
+        <h3><i class="fas fa-history"></i> Order History</h3>
+        <div class="order-list">
+          <div class="order-item">
+            <p class="order-date">May 15, 2023</p>
+            <p class="order-items">Fluffy Cake × 1, Milkshake × 2</p>
+            <p class="order-total">Rp 85.000</p>
+            <p class="order-status completed">Completed</p>
+          </div>
+          <div class="order-item">
+            <p class="order-date">April 28, 2023</p>
+            <p class="order-items">Desert × 1, Coffee × 1</p>
+            <p class="order-total">Rp 65.000</p>
+            <p class="order-status completed">Completed</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="ghibli-footer">
+      <div class="footer-content">
+        <div class="social-links">
+          <a href="#"
+            ><img src="../assets/assets/facebook.png" alt="Facebook"
+          /></a>
+          <a href="#"
+            ><img src="../assets/assets/instagram.png" alt="Instagram"
+          /></a>
+          <a href="#"><img src="../assets/assets/x.png" alt="Twitter" /></a>
+        </div>
+        <p>&copy; 2023 Ghibli Café. All rights reserved.</p>
+      </div>
+      <img src="../assets/assets/catbus.png" alt="Catbus" class="catbus" />
+    </footer>
+
+    <script src="../js/profile.js"></script>
+  </body>
+</html>
