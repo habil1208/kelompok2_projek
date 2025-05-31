@@ -354,6 +354,47 @@ p {
   background-color: var(--ghibli-green);
 }
 
+/* Gaya untuk tombol kembali */
+.back-to-home {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #4d96ff; /* Warna biru Ghibli */
+  text-decoration: none;
+  font-weight: 600;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 8px 15px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.back-to-home:hover {
+  background-color: #4d96ff;
+  color: white;
+  transform: translateX(-5px);
+}
+
+.back-to-home i {
+  transition: transform 0.3s ease;
+}
+
+.back-to-home:hover i {
+  transform: translateX(-3px);
+}
+
+/* Untuk tampilan mobile */
+@media (max-width: 768px) {
+  .back-to-home {
+    top: 15px;
+    left: 15px;
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+}
 /* Animations */
 @keyframes fadeIn {
   from {

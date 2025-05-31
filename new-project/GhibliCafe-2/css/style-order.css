@@ -251,6 +251,16 @@ body {
   font-weight: bold;
 }
 
+.back-to-menu {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #5a8f7b;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
 @media (max-width: 768px) {
   .order-container {
     flex-direction: column;
